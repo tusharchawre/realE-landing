@@ -40,7 +40,7 @@ function App() {
    <>
 
    
-   <div className='w-full h-screen'>
+   <div className='w-full sticky top-0 h-screen'>
     
     <nav className='flex justify-between items-center py-8 px-12 z-0'>
       <h1 className='text-5xl text-teal-500'>
@@ -80,6 +80,11 @@ function App() {
     <div>
       <img src="phone.png" className='absolute right-12 -translate-y-20'/>
     </div>
+
+   </div>
+
+   <div className='w-full h-[100vh] relative z-99 bg-white'>
+    
 
    </div>
 
