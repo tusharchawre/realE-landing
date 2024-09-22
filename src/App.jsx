@@ -35,6 +35,14 @@ function App() {
       opacity: 0,
       duration: 0.3
     }, "-=1")
+    tl.from(".main-image",{
+      opacity: 0,
+      duration: 1
+    }, "-=1")  
+    tl.from(".main-image img",{
+      opacity: 0,
+      duration: 0.3
+    }, "-=1")
 
 
     gsap.to(".card",{
@@ -58,8 +66,20 @@ function App() {
         scroller: "body",
         start: "top 0%",
         end: "bottom 50%",
-
         scrub: 2
+      }
+    })
+
+
+    gsap.from(".types-card",{
+      opacity: 0,
+      scale: 0.9,
+      scrollTrigger: {
+        trigger: ".types",
+        scroller: "body",
+        start: "top 20%",
+        end: "top 100%",
+        scrub: 2,
       }
     })
   })
@@ -110,7 +130,7 @@ function App() {
    <>
 
    
-   <div className='w-full hero sticky top-0 h-screen'>
+   <div className='w-full sticky top-0 h-screen'>
     
     <nav className='flex justify-between items-center py-8 px-12 z-0'>
       <h1 className='text-5xl text-teal-500'>
@@ -139,6 +159,7 @@ function App() {
       </div>
     </div>
 
+    <div className='main-image'>
     <div className='absolute lg:-top-36 top-96 scale-75'>
       <img src="House.png"  />
     </div>
@@ -151,15 +172,17 @@ function App() {
       <img src="phone.png" className='absolute right-12 -translate-y-20'/>
     </div>
 
+    </div>
+
    </div>
 
 
 
 
-   <div className='properties w-full h-[100vh] relative z-99 bg-white'>
-    <div className=' whitespace-nowrap overflow-hidden h-full p-20'>
+   <div className='properties w-full h-screen relative z-99 bg-white'>
+    <div className=' whitespace-nowrap overflow-hidden relative h-full p-20'>
 
-      <p className='relative top-[50%] text-4xl' id='heading'>Recommended Projects
+      <p className='relative top-[50%] text-4xl text-teal-500' id='heading'>Recommended<span className='text-teal-200'>Projects</span>
       </p>
 
 
@@ -200,10 +223,91 @@ function App() {
    </div>
 
 
-<div className='w-full h-screen z-99 relative bg-white'>
+<div className='w-full h-full z-99 relative bg-white '>
+  <div className='p-5 flex justify-center items-center flex-wrap gap-48 types'>
+    <div className='flex flex-col gap-10'>
+    <div className='h-96 types-card w-72 bg-[#FEF5E4] rounded-xl overflow-hidden relative'>
+      <p className='p-10 pb-3 text-3xl font-bold text-[#ad8c4e]'>Residential <br /> Apartments</p>
+      <p className='px-10 text-black/50'>3200+ Properties</p>
+    <img className='object-cover absolute bottom-0' src="Property1.webp" alt="" />
+    </div>
+    <div className='h-96 types-card w-72 bg-[#bae7ff] rounded-xl overflow-hidden relative'>
+    <p className='p-10 pb-3 text-3xl font-bold text-[#81bcdc]'> 1 RK/ Studio <br /> Apartments</p>
+    <p className='px-10 text-black/50'>3200+ Properties</p>
+    <img className='object-cover absolute bottom-0' src="Property2.webp" alt="" />
+    </div> 
+    </div>
+    <div className='flex flex-col gap-10'>
+    <div className='h-96 types-card w-72 bg-[#D7F2E3] rounded-xl overflow-hidden relative'>
+    <p className='p-10 pb-3 text-3xl font-bold text-[#82b89a]'>Independent <br /> House/Villa</p>
+    <p className='px-10 text-black/50'>100+ Properties</p>
+    <img className='object-cover absolute bottom-0' src="Property3.webp" alt="" />
+    </div> 
+    <div className='h-96 types-card w-72 bg-[#FEF5E4] rounded-xl overflow-hidden relative'>
+    <p className='p-10 pb-3 text-3xl font-bold text-[#ae9972]'>1 RK/ Studio <br /> Apartments</p>
+    <p className='px-10 text-black/50'>3200+ Properties</p>
+    <img className='object-cover absolute bottom-0 w-72' src="Property4.webp" alt="" />
+    </div>
+    </div>
+  </div>
+
+
 
 </div>
    
+
+<footer className='bg-gray-900 text-white py-12 relative z-99'>
+  <div className='container mx-auto px-12'>
+    <div className='flex flex-wrap justify-between'>
+      
+      {/* About Us Section */}
+      <div className='w-full lg:w-1/4 mb-6 lg:mb-0'>
+        <h2 className='text-lg font-semibold mb-4'>About Us</h2>
+        <p className='text-sm text-gray-400'>We are a leading real estate platform dedicated to helping you find the perfect home. Our expert team provides top-notch service to guide you through every step of the process.</p>
+      </div>
+
+      {/* Contact Us Section */}
+      <div className='w-full lg:w-1/4 mb-6 lg:mb-0'>
+        <h2 className='text-lg font-semibold mb-4'>Contact Us</h2>
+        <ul className='text-sm text-gray-400'>
+          <li className='mb-2'><i className='fas fa-phone mr-2'></i> +123 456 7890</li>
+          <li className='mb-2'><i className='fas fa-envelope mr-2'></i> support@realestate.com</li>
+          <li><i className='fas fa-map-marker-alt mr-2'></i> 123 Real Estate Street, Cityville</li>
+        </ul>
+      </div>
+
+      {/* Useful Links Section */}
+      <div className='w-full lg:w-1/4 mb-6 lg:mb-0'>
+        <h2 className='text-lg font-semibold mb-4'>Useful Links</h2>
+        <ul className='text-sm text-gray-400'>
+          <li className='mb-2'><a href='#' className='hover:text-teal-500'>About Us</a></li>
+          <li className='mb-2'><a href='#' className='hover:text-teal-500'>How It Works</a></li>
+          <li className='mb-2'><a href='#' className='hover:text-teal-500'>Apartments</a></li>
+          <li className='mb-2'><a href='#' className='hover:text-teal-500'>Blog</a></li>
+          <li><a href='#' className='hover:text-teal-500'>Contact Us</a></li>
+        </ul>
+      </div>
+
+      {/* Follow Us Section */}
+      <div className='w-full lg:w-1/4'>
+        <h2 className='text-lg font-semibold mb-4'>Follow Us</h2>
+        <div className='flex space-x-4'>
+          <a href='#' className='text-gray-400 hover:text-white'><i className='fab fa-facebook fa-lg'></i></a>
+          <a href='#' className='text-gray-400 hover:text-white'><i className='fab fa-twitter fa-lg'></i></a>
+          <a href='#' className='text-gray-400 hover:text-white'><i className='fab fa-instagram fa-lg'></i></a>
+          <a href='#' className='text-gray-400 hover:text-white'><i className='fab fa-linkedin fa-lg'></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div className='mt-12 border-t border-gray-700 pt-6 text-center text-sm text-gray-500'>
+      © 2024 RealEstate. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+    
+
 
    </>
   )
